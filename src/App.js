@@ -1,10 +1,12 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 
 import LandingScreen from './screens/Landing';
 import HomeScreen from './screens/Home';
 import SignInScreen from './screens/SignIn';
+import { Button } from 'react-native';
+
 
 const RootStack = createStackNavigator();
 
@@ -19,7 +21,7 @@ const App = () => {
   const handleSignOut = () => {
     // TODO implement real sign out mechanism
 
-    setIsAuthenticated(false);
+    setIsAuth(false);
   };
 
   return (
@@ -41,6 +43,10 @@ const App = () => {
             <RootStack.Screen
               name="Landing"
               component={LandingScreen}
+              //? added for signout back animation
+              options={{
+                animationTypeForReplace: 'pop',
+              }}
             />
             <RootStack.Screen name="Sign In">
               {(props) => (
