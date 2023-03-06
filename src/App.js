@@ -5,6 +5,9 @@ import { createStackNavigator } from '@react-navigation/stack';
 import LandingScreen from './screens/Landing';
 import HomeScreen from './screens/Home';
 import SignInScreen from './screens/SignIn';
+import SignUpScreen from './screens/SignUp';
+
+
 import { Button } from 'react-native';
 
 
@@ -22,6 +25,12 @@ const App = () => {
     // TODO implement real sign out mechanism
 
     setIsAuth(false);
+  };
+
+  const handleSignUp = () => {
+    // TODO implement real sign up mechanism
+
+    setIsAuth(true);
   };
 
   return (
@@ -48,11 +57,20 @@ const App = () => {
                 animationTypeForReplace: 'pop',
               }}
             />
+
+            {/* //? ******------SIGN IN AND SIGN UP--------***** */}
             <RootStack.Screen name="Sign In">
               {(props) => (
                 <SignInScreen {...props} onSignIn={handleSignIn} />
               )}
             </RootStack.Screen>
+
+            <RootStack.Screen name="Sign Up">
+              {(props) => (
+                <SignUpScreen {...props} onSignUp={handleSignUp} />
+              )}
+            </RootStack.Screen>
+            {/* //? ******------SIGN IN AND SIGN UP--------***** */}
           </>
         )}
 
