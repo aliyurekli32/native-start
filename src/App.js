@@ -1,6 +1,9 @@
 import { useState } from 'react';
+
+
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
+import { createDrawerNavigator } from '@react-navigation/drawer';
 
 import LandingScreen from './screens/Landing';
 import HomeScreen from './screens/Home';
@@ -10,6 +13,22 @@ import PasswordForgetScreen from './screens/PasswordForget';
 
 
 import { Button } from 'react-native';
+
+
+const Drawer = createDrawerNavigator();
+
+const HomeDrawer = () => {
+  return (
+    <Drawer.Navigator>
+      <Drawer.Screen name="Home" component={HomeScreen} />
+      <Drawer.Screen
+        name="Password Forget"
+        component={PasswordForgetScreen}
+      />
+    </Drawer.Navigator>
+  );
+};
+
 
 
 const RootStack = createStackNavigator();
@@ -39,7 +58,7 @@ const App = () => {
       <RootStack.Navigator>
       {isAuth ? (
         //! Authenticated Home
-          <RootStack.Screen name="Home" component={HomeScreen} 
+          <RootStack.Screen name="Home" component={HomeDrawer} 
           //? we add options for logout with header
           options={{
             headerRight: () => (
