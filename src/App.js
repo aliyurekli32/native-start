@@ -6,6 +6,7 @@ import LandingScreen from './screens/Landing';
 import HomeScreen from './screens/Home';
 import SignInScreen from './screens/SignIn';
 import SignUpScreen from './screens/SignUp';
+import PasswordForgetScreen from './screens/PasswordForget';
 
 
 import { Button } from 'react-native';
@@ -71,6 +72,12 @@ const App = () => {
               )}
             </RootStack.Screen>
             {/* //? ******------SIGN IN AND SIGN UP--------***** */}
+          
+
+            <RootStack.Screen
+              name="Password Forget"
+              component={PasswordForgetScreen}
+            />
           </>
         )}
 
