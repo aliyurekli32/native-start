@@ -12,7 +12,9 @@ import HomeScreen from './screens/Home';
 import SignInScreen from './screens/SignIn';
 import SignUpScreen from './screens/SignUp';
 import PasswordForgetScreen from './screens/PasswordForget';
-
+import PasswordChange from './screens/PasswordChange';
+import Account from './screens/Account';
+import Admin from './screens/Admin';
 
 import { Button } from 'react-native';
 
@@ -23,10 +25,13 @@ const HomeDrawer = () => {
   return (
     <Drawer.Navigator>
       <Drawer.Screen name="Home" component={HomeScreen} />
+      <Drawer.Screen name="Account" component={Account} />
+      <Drawer.Screen name="PasswordChange" component={PasswordChange} />
       <Drawer.Screen
         name="Password Forget"
         component={PasswordForgetScreen}
       />
+      <Drawer.Screen name="Admin" component={Admin} />
     </Drawer.Navigator>
   );
 };
