@@ -6,6 +6,8 @@ import { NavigationContainer,
          getFocusedRouteNameFromRoute, } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 import { createDrawerNavigator } from '@react-navigation/drawer';
+import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
+
 
 import LandingScreen from './screens/Landing';
 import HomeScreen from './screens/Home';
@@ -19,12 +21,29 @@ import Admin from './screens/Admin';
 import { Button } from 'react-native';
 
 
+
+
+
+
+const Tab = createBottomTabNavigator();
+
+const HomeTabs = () => {
+  return (
+    <Tab.Navigator>
+      <Tab.Screen name="Home" component={HomeScreen} />
+    </Tab.Navigator>
+  );
+};
+
+
+
+
 const Drawer = createDrawerNavigator();
 
 const HomeDrawer = () => {
   return (
     <Drawer.Navigator>
-      <Drawer.Screen name="Home" component={HomeScreen} />
+      <Drawer.Screen name="Home" component={HomeTabs} />
       <Drawer.Screen name="Account" component={Account} />
       <Drawer.Screen name="PasswordChange" component={PasswordChange} />
       <Drawer.Screen
