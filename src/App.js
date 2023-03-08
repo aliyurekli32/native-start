@@ -1,7 +1,9 @@
 import { useState } from 'react';
 
 
-import { NavigationContainer } from '@react-navigation/native';
+import { NavigationContainer,
+         DrawerActions,
+         getFocusedRouteNameFromRoute, } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 import { createDrawerNavigator } from '@react-navigation/drawer';
 
@@ -60,11 +62,20 @@ const App = () => {
         //! Authenticated Home
           <RootStack.Screen name="Home" component={HomeDrawer} 
           //? we add options for logout with header
-          options={{
+          options={({ route, navigation }) => ({
+            headerTitle: getFocusedRouteNameFromRoute(route),
+            headerLeft: () => (
+              <Button
+                onPress={() =>
+                  navigation.dispatch(DrawerActions.toggleDrawer())
+                }
+                title="Menu"
+              />
+            ),
             headerRight: () => (
               <Button onPress={handleSignOut} title="Sign Out" />
             ),
-          }} 
+          })} 
           />
         //! Authenticated Home
         ) : (
