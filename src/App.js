@@ -19,6 +19,7 @@ import Account from './screens/Account';
 import Admin from './screens/Admin';
 
 import { Button } from 'react-native';
+import ProfileScreen from './screens/Profile';
 
 
 
@@ -31,6 +32,7 @@ const HomeTabs = () => {
   return (
     <Tab.Navigator>
       <Tab.Screen name="Home" component={HomeScreen} />
+      <Tab.Screen name="Profile" component={ProfileScreen} />
     </Tab.Navigator>
   );
 };
